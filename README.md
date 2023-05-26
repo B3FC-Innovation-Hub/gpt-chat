@@ -4,6 +4,10 @@ This is a wrapper around OpenAI's GPT Chat API which can be included in web-proj
 
 This project is part of B3 Consulting Group's Innovation Hub.
 
+## TODO
+- [ ] Setup npm org and push to it npm
+- [ ] Port to typescript
+
 ## Installation
 ```bash
 $ npm install -g @b3fc/gpt-chat
