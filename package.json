@@ -5,7 +5,8 @@
 	"description": "An implementation of/wrapper around the OpenAI API",
 	"type": "module",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"debug": "node --inspect-brk src/bin/cli.js"
 	},
 	"bin": {
 		"chat": "./src/bin/cli.js"
