@@ -1,0 +1,19 @@
+{
+	"name": "@b3fc/gpt-chat",
+	"version": "1.0.0",
+	"private": true,
+	"description": "An implementation of/wrapper around the OpenAI API",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"bin": {
+		"chat": "./src/bin/cli.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"gpt-3-encoder": "^1.1.4",
+		"openai": "^3.2.1"
+	}
+}
