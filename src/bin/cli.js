@@ -133,6 +133,7 @@ async function startConversation() {
 		checkAllEnvExist();
 		const name = process.env.USER || await prompt("Whats your name?\n> ", false);
 		const gpt = new ChatGPT(process.env.OPENAI_API_KEY, name);
+		await gpt.init();
 		console.log("Using model: " + process.env.MODEL);
 		console.log("Send by " + (process.env.EOF === '\n' ? "hitting <Enter>" : ("typing: " + process.env.EOF)));
 		console.log("");

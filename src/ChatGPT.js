@@ -176,24 +176,15 @@ export class ChatGPT {
 	 * @return {openai.OpenAIApi} 
 	 */
 	constructor(apiKey, name) {
-    
-		//Setup a connection/instance of openai using the apiKey
-		const apiConf = new openai.Configuration({
-			apiKey: apiKey
-		});
-		this.conn = new openai.OpenAIApi(apiConf);
-
-
-		this.conn.listEngines().then(response => {
-			try {
-				this.engines = {}
-				for (let eng of response.data.data) {
-					this.engines[eng.id] = eng;
-				}
-			} catch (e) {
-				console.error("Failed to get the list engines:", e, response);
-			}
-		})
+		try {		
+			//Setup a connection/instance of openai using the apiKey
+			const apiConf = new openai.Configuration({
+				apiKey: apiKey
+			});
+			this.conn = new openai.OpenAIApi(apiConf);
+		} catch (cause) {
+			throw new Error("Failed to create OpenAIApi instance:", { cause });
+		}
 
 		//If the user passed in a name to use, store that and use it as one of 
 		//the 'stop tokens' (which I have no idea what it actually is)
@@ -222,9 +213,34 @@ export class ChatGPT {
 		//   ,'ai':{value:function getAiResponses(){return this.history.filter((str,i)=>i%2==1);}}
 		// });
 
-
 	}
 
+	/**
+	 * Connect to openai and get available models. This is a good way to make sure the api key is valid
+	 *
+	 * @return     {Promise}  this
+	 */
+	async init() {
+		try {
+			response = await this.conn.listEngines()
+		} catch (e) {
+			if ('response' in e) {
+				throw new Error("Failed to init OpenAI. " + e.response.data.error.message);
+			}
+		}
+			
+		try {
+			this.engines = {}
+			for (let eng of response.data.data) {
+				this.engines[eng.id] = eng;
+			}
+		} catch (cause) {
+			console.error(response)
+			throw new Error("Unexpected format format of list of engines (see console^)", { cause })
+		}
+
+		return this;
+	}
 
 
 	/**
