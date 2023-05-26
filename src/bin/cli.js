@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import ChatGPT from "./ChatGPT.js"
+import ChatGPT from "../ChatGPT.js"
 import * as readline from 'node:readline';
 import * as process from 'node:process';
 import fs from 'fs';
