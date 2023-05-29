@@ -9,12 +9,15 @@ This project is part of B3 Consulting Group's Innovation Hub.
 - [ ] Port to typescript
 
 ## Installation
+2023-05-29: Not yet implemented! Until npm package is deployed you will have do download the source files and use './src/bin/cli.js' where you would otherwise use 'gpt-chat'.
+
 ```bash
 $ npm install -g @b3fc/gpt-chat
 ```
 By installing it globally you'll be able to invoke it directly from the command line, see below.
 
 ## Usage
+
 You can use this directly from the command line which will give you an interactive terminal interface, just run:
 ```bash
 $ OPENAI_API_KEY=asdfjasldjf MODEL=gpt-4 gpt-chat
