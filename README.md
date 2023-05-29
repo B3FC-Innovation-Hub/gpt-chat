@@ -2,7 +2,10 @@
 
 This is a wrapper around OpenAI's GPT Chat API which can be included in web-projects or invoked directly from the command line.
 
-This project is part of B3 Consulting Group's Innovation Hub.
+This project is part of B3 Consulting Group's Innovation Hub. It is part of the chat project:
+ - Frontend: [chatboi](https://github.com/B3FC-Innovation-Hub/ai-chatbot)
+ - OpenAI interface: this
+ - Backend: TBD
 
 ## TODO
 - [ ] Setup npm org and push to it npm
